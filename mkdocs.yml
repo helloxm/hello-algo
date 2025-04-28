@@ -153,14 +153,6 @@ extra_css:
 
 # Page tree
 nav:
-  - 序:
-    - chapter_hello_algo/index.md
-  # - 第 0 章 &nbsp; 前言:
-    # [icon: material/book-open-outline]
-    - chapter_preface/index.md
-    # - 0.1 &nbsp; 关于本书: chapter_preface/about_the_book.md
-    # - 0.2 &nbsp; 如何使用本书: chapter_preface/suggestions.md
-    # - 0.3 &nbsp; 小结: chapter_preface/summary.md
   - 第 1 章 &nbsp; 初识算法:
     # [icon: material/calculator-variant-outline]
     - chapter_introduction/index.md
@@ -293,5 +285,5 @@ nav:
     - 16.3 &nbsp; 术语表: chapter_appendix/terminology.md
   - 参考文献:
     - chapter_reference/index.md
-  - 纸质书:
-    - chapter_paperbook/index.md
+  # - 纸质书:
+  #   - chapter_paperbook/index.md
