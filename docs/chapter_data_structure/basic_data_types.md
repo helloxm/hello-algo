@@ -44,19 +44,6 @@
 
 换句话说，**基本数据类型提供了数据的“内容类型”，而数据结构提供了数据的“组织方式”**。例如以下代码，我们用相同的数据结构（数组）来存储与表示不同的基本数据类型，包括 `int`、`float`、`char`、`bool` 等。
 
-=== "Python"
-
-    ```python title=""
-    # 使用多种基本数据类型来初始化数组
-    numbers: list[int] = [0] * 5
-    decimals: list[float] = [0.0] * 5
-    # Python 的字符实际上是长度为 1 的字符串
-    characters: list[str] = ['0'] * 5
-    bools: list[bool] = [False] * 5
-    # Python 的列表可以自由存储各种基本数据类型和对象引用
-    data = [0, 0.0, 'a', False, ListNode(0)]
-    ```
-
 === "C++"
 
     ```cpp title=""
@@ -67,82 +54,6 @@
     bool bools[5];
     ```
 
-=== "Java"
-
-    ```java title=""
-    // 使用多种基本数据类型来初始化数组
-    int[] numbers = new int[5];
-    float[] decimals = new float[5];
-    char[] characters = new char[5];
-    boolean[] bools = new boolean[5];
-    ```
-
-=== "C#"
-
-    ```csharp title=""
-    // 使用多种基本数据类型来初始化数组
-    int[] numbers = new int[5];
-    float[] decimals = new float[5];
-    char[] characters = new char[5];
-    bool[] bools = new bool[5];
-    ```
-
-=== "Go"
-
-    ```go title=""
-    // 使用多种基本数据类型来初始化数组
-    var numbers = [5]int{}
-    var decimals = [5]float64{}
-    var characters = [5]byte{}
-    var bools = [5]bool{}
-    ```
-
-=== "Swift"
-
-    ```swift title=""
-    // 使用多种基本数据类型来初始化数组
-    let numbers = Array(repeating: 0, count: 5)
-    let decimals = Array(repeating: 0.0, count: 5)
-    let characters: [Character] = Array(repeating: "a", count: 5)
-    let bools = Array(repeating: false, count: 5)
-    ```
-
-=== "JS"
-
-    ```javascript title=""
-    // JavaScript 的数组可以自由存储各种基本数据类型和对象
-    const array = [0, 0.0, 'a', false];
-    ```
-
-=== "TS"
-
-    ```typescript title=""
-    // 使用多种基本数据类型来初始化数组
-    const numbers: number[] = [];
-    const characters: string[] = [];
-    const bools: boolean[] = [];
-    ```
-
-=== "Dart"
-
-    ```dart title=""
-    // 使用多种基本数据类型来初始化数组
-    List<int> numbers = List.filled(5, 0);
-    List<double> decimals = List.filled(5, 0.0);
-    List<String> characters = List.filled(5, 'a');
-    List<bool> bools = List.filled(5, false);
-    ```
-
-=== "Rust"
-
-    ```rust title=""
-    // 使用多种基本数据类型来初始化数组
-    let numbers: Vec<i32> = vec![0; 5];
-    let decimals: Vec<f32> = vec![0.0; 5];
-    let characters: Vec<char> = vec!['0'; 5];
-    let bools: Vec<bool> = vec![false; 5];
-    ```
-
 === "C"
 
     ```c title=""
@@ -151,29 +62,6 @@
     float decimals[10];
     char characters[10];
     bool bools[10];
-    ```
-
-=== "Kotlin"
-
-    ```kotlin title=""
-    // 使用多种基本数据类型来初始化数组
-    val numbers = IntArray(5)
-    val decinals = FloatArray(5)
-    val characters = CharArray(5)
-    val bools = BooleanArray(5)
-    ```
-
-=== "Ruby"
-
-    ```ruby title=""
-    # Ruby 的列表可以自由存储各种基本数据类型和对象引用
-    data = [0, 0.0, 'a', false, ListNode(0)]
-    ```
-
-=== "Zig"
-
-    ```zig title=""
-
     ```
 
 ??? pythontutor "可视化运行"

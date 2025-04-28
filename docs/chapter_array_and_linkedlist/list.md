@@ -17,15 +17,6 @@
 
 我们通常使用“无初始值”和“有初始值”这两种初始化方法：
 
-=== "Python"
-
-    ```python title="list.py"
-    # 初始化列表
-    # 无初始值
-    nums1: list[int] = []
-    # 有初始值
-    nums: list[int] = [1, 3, 2, 5, 4]
-    ```
 
 === "C++"
 
@@ -38,122 +29,10 @@
     vector<int> nums = { 1, 3, 2, 5, 4 };
     ```
 
-=== "Java"
-
-    ```java title="list.java"
-    /* 初始化列表 */
-    // 无初始值
-    List<Integer> nums1 = new ArrayList<>();
-    // 有初始值（注意数组的元素类型需为 int[] 的包装类 Integer[]）
-    Integer[] numbers = new Integer[] { 1, 3, 2, 5, 4 };
-    List<Integer> nums = new ArrayList<>(Arrays.asList(numbers));
-    ```
-
-=== "C#"
-
-    ```csharp title="list.cs"
-    /* 初始化列表 */
-    // 无初始值
-    List<int> nums1 = [];
-    // 有初始值
-    int[] numbers = [1, 3, 2, 5, 4];
-    List<int> nums = [.. numbers];
-    ```
-
-=== "Go"
-
-    ```go title="list_test.go"
-    /* 初始化列表 */
-    // 无初始值
-    nums1 := []int{}
-    // 有初始值
-    nums := []int{1, 3, 2, 5, 4}
-    ```
-
-=== "Swift"
-
-    ```swift title="list.swift"
-    /* 初始化列表 */
-    // 无初始值
-    let nums1: [Int] = []
-    // 有初始值
-    var nums = [1, 3, 2, 5, 4]
-    ```
-
-=== "JS"
-
-    ```javascript title="list.js"
-    /* 初始化列表 */
-    // 无初始值
-    const nums1 = [];
-    // 有初始值
-    const nums = [1, 3, 2, 5, 4];
-    ```
-
-=== "TS"
-
-    ```typescript title="list.ts"
-    /* 初始化列表 */
-    // 无初始值
-    const nums1: number[] = [];
-    // 有初始值
-    const nums: number[] = [1, 3, 2, 5, 4];
-    ```
-
-=== "Dart"
-
-    ```dart title="list.dart"
-    /* 初始化列表 */
-    // 无初始值
-    List<int> nums1 = [];
-    // 有初始值
-    List<int> nums = [1, 3, 2, 5, 4];
-    ```
-
-=== "Rust"
-
-    ```rust title="list.rs"
-    /* 初始化列表 */
-    // 无初始值
-    let nums1: Vec<i32> = Vec::new();
-    // 有初始值
-    let nums: Vec<i32> = vec![1, 3, 2, 5, 4];
-    ```
-
 === "C"
 
     ```c title="list.c"
     // C 未提供内置动态数组
-    ```
-
-=== "Kotlin"
-
-    ```kotlin title="list.kt"
-    /* 初始化列表 */
-    // 无初始值
-    var nums1 = listOf<Int>()
-    // 有初始值
-    var numbers = arrayOf(1, 3, 2, 5, 4)
-    var nums = numbers.toMutableList()
-    ```
-
-=== "Ruby"
-
-    ```ruby title="list.rb"
-    # 初始化列表
-    # 无初始值
-    nums1 = []
-    # 有初始值
-    nums = [1, 3, 2, 5, 4]
-    ```
-
-=== "Zig"
-
-    ```zig title="list.zig"
-    // 初始化列表
-    var nums = std.ArrayList(i32).init(std.heap.page_allocator);
-    defer nums.deinit();
-    try nums.appendSlice(&[_]i32{ 1, 3, 2, 5, 4 });
     ```
 
 ??? pythontutor "可视化运行"
@@ -164,15 +43,6 @@
 
 列表本质上是数组，因此可以在 $O(1)$ 时间内访问和更新元素，效率很高。
 
-=== "Python"
-
-    ```python title="list.py"
-    # 访问元素
-    num: int = nums[1]  # 访问索引 1 处的元素
-
-    # 更新元素
-    nums[1] = 0    # 将索引 1 处的元素更新为 0
-    ```
 
 === "C++"
 
@@ -184,117 +54,10 @@
     nums[1] = 0;  // 将索引 1 处的元素更新为 0
     ```
 
-=== "Java"
-
-    ```java title="list.java"
-    /* 访问元素 */
-    int num = nums.get(1);  // 访问索引 1 处的元素
-
-    /* 更新元素 */
-    nums.set(1, 0);  // 将索引 1 处的元素更新为 0
-    ```
-
-=== "C#"
-
-    ```csharp title="list.cs"
-    /* 访问元素 */
-    int num = nums[1];  // 访问索引 1 处的元素
-
-    /* 更新元素 */
-    nums[1] = 0;  // 将索引 1 处的元素更新为 0
-    ```
-
-=== "Go"
-
-    ```go title="list_test.go"
-    /* 访问元素 */
-    num := nums[1]  // 访问索引 1 处的元素
-
-    /* 更新元素 */
-    nums[1] = 0     // 将索引 1 处的元素更新为 0
-    ```
-
-=== "Swift"
-
-    ```swift title="list.swift"
-    /* 访问元素 */
-    let num = nums[1] // 访问索引 1 处的元素
-
-    /* 更新元素 */
-    nums[1] = 0 // 将索引 1 处的元素更新为 0
-    ```
-
-=== "JS"
-
-    ```javascript title="list.js"
-    /* 访问元素 */
-    const num = nums[1];  // 访问索引 1 处的元素
-
-    /* 更新元素 */
-    nums[1] = 0;  // 将索引 1 处的元素更新为 0
-    ```
-
-=== "TS"
-
-    ```typescript title="list.ts"
-    /* 访问元素 */
-    const num: number = nums[1];  // 访问索引 1 处的元素
-
-    /* 更新元素 */
-    nums[1] = 0;  // 将索引 1 处的元素更新为 0
-    ```
-
-=== "Dart"
-
-    ```dart title="list.dart"
-    /* 访问元素 */
-    int num = nums[1];  // 访问索引 1 处的元素
-
-    /* 更新元素 */
-    nums[1] = 0;  // 将索引 1 处的元素更新为 0
-    ```
-
-=== "Rust"
-
-    ```rust title="list.rs"
-    /* 访问元素 */
-    let num: i32 = nums[1];  // 访问索引 1 处的元素
-    /* 更新元素 */
-    nums[1] = 0;             // 将索引 1 处的元素更新为 0
-    ```
-
 === "C"
 
     ```c title="list.c"
     // C 未提供内置动态数组
-    ```
-
-=== "Kotlin"
-
-    ```kotlin title="list.kt"
-    /* 访问元素 */
-    val num = nums[1]       // 访问索引 1 处的元素
-    /* 更新元素 */
-    nums[1] = 0             // 将索引 1 处的元素更新为 0
-    ```
-
-=== "Ruby"
-
-    ```ruby title="list.rb"
-    # 访问元素
-    num = nums[1] # 访问索引 1 处的元素
-    # 更新元素
-    nums[1] = 0 # 将索引 1 处的元素更新为 0
-    ```
-
-=== "Zig"
-
-    ```zig title="list.zig"
-    // 访问元素
-    var num = nums.items[1]; // 访问索引 1 处的元素
-
-    // 更新元素
-    nums.items[1] = 0; // 将索引 1 处的元素更新为 0
     ```
 
 ??? pythontutor "可视化运行"
@@ -305,25 +68,6 @@
 
 相较于数组，列表可以自由地添加与删除元素。在列表尾部添加元素的时间复杂度为 $O(1)$ ，但插入和删除元素的效率仍与数组相同，时间复杂度为 $O(n)$ 。
 
-=== "Python"
-
-    ```python title="list.py"
-    # 清空列表
-    nums.clear()
-
-    # 在尾部添加元素
-    nums.append(1)
-    nums.append(3)
-    nums.append(2)
-    nums.append(5)
-    nums.append(4)
-
-    # 在中间插入元素
-    nums.insert(3, 6)  # 在索引 3 处插入数字 6
-
-    # 删除元素
-    nums.pop(3)        # 删除索引 3 处的元素
-    ```
 
 === "C++"
 
@@ -345,230 +89,10 @@
     nums.erase(nums.begin() + 3);      // 删除索引 3 处的元素
     ```
 
-=== "Java"
-
-    ```java title="list.java"
-    /* 清空列表 */
-    nums.clear();
-
-    /* 在尾部添加元素 */
-    nums.add(1);
-    nums.add(3);
-    nums.add(2);
-    nums.add(5);
-    nums.add(4);
-
-    /* 在中间插入元素 */
-    nums.add(3, 6);  // 在索引 3 处插入数字 6
-
-    /* 删除元素 */
-    nums.remove(3);  // 删除索引 3 处的元素
-    ```
-
-=== "C#"
-
-    ```csharp title="list.cs"
-    /* 清空列表 */
-    nums.Clear();
-
-    /* 在尾部添加元素 */
-    nums.Add(1);
-    nums.Add(3);
-    nums.Add(2);
-    nums.Add(5);
-    nums.Add(4);
-
-    /* 在中间插入元素 */
-    nums.Insert(3, 6);  // 在索引 3 处插入数字 6
-
-    /* 删除元素 */
-    nums.RemoveAt(3);  // 删除索引 3 处的元素
-    ```
-
-=== "Go"
-
-    ```go title="list_test.go"
-    /* 清空列表 */
-    nums = nil
-
-    /* 在尾部添加元素 */
-    nums = append(nums, 1)
-    nums = append(nums, 3)
-    nums = append(nums, 2)
-    nums = append(nums, 5)
-    nums = append(nums, 4)
-
-    /* 在中间插入元素 */
-    nums = append(nums[:3], append([]int{6}, nums[3:]...)...) // 在索引 3 处插入数字 6
-
-    /* 删除元素 */
-    nums = append(nums[:3], nums[4:]...) // 删除索引 3 处的元素
-    ```
-
-=== "Swift"
-
-    ```swift title="list.swift"
-    /* 清空列表 */
-    nums.removeAll()
-
-    /* 在尾部添加元素 */
-    nums.append(1)
-    nums.append(3)
-    nums.append(2)
-    nums.append(5)
-    nums.append(4)
-
-    /* 在中间插入元素 */
-    nums.insert(6, at: 3) // 在索引 3 处插入数字 6
-
-    /* 删除元素 */
-    nums.remove(at: 3) // 删除索引 3 处的元素
-    ```
-
-=== "JS"
-
-    ```javascript title="list.js"
-    /* 清空列表 */
-    nums.length = 0;
-
-    /* 在尾部添加元素 */
-    nums.push(1);
-    nums.push(3);
-    nums.push(2);
-    nums.push(5);
-    nums.push(4);
-
-    /* 在中间插入元素 */
-    nums.splice(3, 0, 6); // 在索引 3 处插入数字 6
-
-    /* 删除元素 */
-    nums.splice(3, 1);  // 删除索引 3 处的元素
-    ```
-
-=== "TS"
-
-    ```typescript title="list.ts"
-    /* 清空列表 */
-    nums.length = 0;
-
-    /* 在尾部添加元素 */
-    nums.push(1);
-    nums.push(3);
-    nums.push(2);
-    nums.push(5);
-    nums.push(4);
-
-    /* 在中间插入元素 */
-    nums.splice(3, 0, 6); // 在索引 3 处插入数字 6
-
-    /* 删除元素 */
-    nums.splice(3, 1);  // 删除索引 3 处的元素
-    ```
-
-=== "Dart"
-
-    ```dart title="list.dart"
-    /* 清空列表 */
-    nums.clear();
-
-    /* 在尾部添加元素 */
-    nums.add(1);
-    nums.add(3);
-    nums.add(2);
-    nums.add(5);
-    nums.add(4);
-
-    /* 在中间插入元素 */
-    nums.insert(3, 6); // 在索引 3 处插入数字 6
-
-    /* 删除元素 */
-    nums.removeAt(3); // 删除索引 3 处的元素
-    ```
-
-=== "Rust"
-
-    ```rust title="list.rs"
-    /* 清空列表 */
-    nums.clear();
-
-    /* 在尾部添加元素 */
-    nums.push(1);
-    nums.push(3);
-    nums.push(2);
-    nums.push(5);
-    nums.push(4);
-
-    /* 在中间插入元素 */
-    nums.insert(3, 6);  // 在索引 3 处插入数字 6
-
-    /* 删除元素 */
-    nums.remove(3);    // 删除索引 3 处的元素
-    ```
-
 === "C"
 
     ```c title="list.c"
     // C 未提供内置动态数组
-    ```
-
-=== "Kotlin"
-
-    ```kotlin title="list.kt"
-    /* 清空列表 */
-    nums.clear();
-
-    /* 在尾部添加元素 */
-    nums.add(1);
-    nums.add(3);
-    nums.add(2);
-    nums.add(5);
-    nums.add(4);
-
-    /* 在中间插入元素 */
-    nums.add(3, 6);  // 在索引 3 处插入数字 6
-
-    /* 删除元素 */
-    nums.remove(3);  // 删除索引 3 处的元素
-    ```
-
-=== "Ruby"
-
-    ```ruby title="list.rb"
-    # 清空列表
-    nums.clear
-
-    # 在尾部添加元素
-    nums << 1
-    nums << 3
-    nums << 2
-    nums << 5
-    nums << 4
-
-    # 在中间插入元素
-    nums.insert(3, 6) # 在索引 3 处插入数字 6
-
-    # 删除元素
-    nums.delete_at(3) # 删除索引 3 处的元素
-    ```
-
-=== "Zig"
-
-    ```zig title="list.zig"
-    // 清空列表
-    nums.clearRetainingCapacity();
-
-    // 在尾部添加元素
-    try nums.append(1);
-    try nums.append(3);
-    try nums.append(2);
-    try nums.append(5);
-    try nums.append(4);
-
-    // 在中间插入元素
-    try nums.insert(3, 6); // 在索引 3 处插入数字 6
-
-    // 删除元素
-    _ = nums.orderedRemove(3); // 删除索引 3 处的元素
     ```
 
 ??? pythontutor "可视化运行"

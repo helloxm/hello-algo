@@ -2,17 +2,6 @@
 
 <u>二叉树（binary tree）</u>是一种非线性数据结构，代表“祖先”与“后代”之间的派生关系，体现了“一分为二”的分治逻辑。与链表类似，二叉树的基本单元是节点，每个节点包含值、左子节点引用和右子节点引用。
 
-=== "Python"
-
-    ```python title=""
-    class TreeNode:
-        """二叉树节点类"""
-        def __init__(self, val: int):
-            self.val: int = val                # 节点值
-            self.left: TreeNode | None = None  # 左子节点引用
-            self.right: TreeNode | None = None # 右子节点引用
-    ```
-
 === "C++"
 
     ```cpp title=""
@@ -23,6 +12,30 @@
         TreeNode *right;  // 右子节点指针
         TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
     };
+    ```
+
+=== "C"
+
+    ```c title=""
+    /* 二叉树节点结构体 */
+    typedef struct TreeNode {
+        int val;                // 节点值
+        int height;             // 节点高度
+        struct TreeNode *left;  // 左子节点指针
+        struct TreeNode *right; // 右子节点指针
+    } TreeNode;
+
+    /* 构造函数 */
+    TreeNode *newTreeNode(int val) {
+        TreeNode *node;
+
+        node = (TreeNode *)malloc(sizeof(TreeNode));
+        node->val = val;
+        node->height = 0;
+        node->left = NULL;
+        node->right = NULL;
+        return node;
+    }
     ```
 
 === "Java"
@@ -150,61 +163,6 @@
             }))
         }
     }
-    ```
-
-=== "C"
-
-    ```c title=""
-    /* 二叉树节点结构体 */
-    typedef struct TreeNode {
-        int val;                // 节点值
-        int height;             // 节点高度
-        struct TreeNode *left;  // 左子节点指针
-        struct TreeNode *right; // 右子节点指针
-    } TreeNode;
-
-    /* 构造函数 */
-    TreeNode *newTreeNode(int val) {
-        TreeNode *node;
-
-        node = (TreeNode *)malloc(sizeof(TreeNode));
-        node->val = val;
-        node->height = 0;
-        node->left = NULL;
-        node->right = NULL;
-        return node;
-    }
-    ```
-
-=== "Kotlin"
-
-    ```kotlin title=""
-    /* 二叉树节点类 */
-    class TreeNode(val _val: Int) {  // 节点值
-        val left: TreeNode? = null   // 左子节点引用
-        val right: TreeNode? = null  // 右子节点引用
-    }
-    ```
-
-=== "Ruby"
-
-    ```ruby title=""
-    ### 二叉树节点类 ###
-    class TreeNode
-      attr_accessor :val    # 节点值
-      attr_accessor :left   # 左子节点引用
-      attr_accessor :right  # 右子节点引用
-
-      def initialize(val)
-        @val = val
-      end
-    end
-    ```
-
-=== "Zig"
-
-    ```zig title=""
-
     ```
 
 每个节点都有两个引用（指针），分别指向<u>左子节点（left-child node）</u>和<u>右子节点（right-child node）</u>，该节点被称为这两个子节点的<u>父节点（parent node）</u>。当给定一个二叉树的节点时，我们将该节点的左子节点及其以下节点形成的树称为该节点的<u>左子树（left subtree）</u>，同理可得<u>右子树（right subtree）</u>。

@@ -11,20 +11,11 @@
 观察上图，链表的组成单位是<u>节点（node）</u>对象。每个节点都包含两项数据：节点的“值”和指向下一节点的“引用”。
 
 - 链表的首个节点被称为“头节点”，最后一个节点被称为“尾节点”。
-- 尾节点指向的是“空”，它在 Java、C++ 和 Python 中分别被记为 `null`、`nullptr` 和 `None` 。
-- 在 C、C++、Go 和 Rust 等支持指针的语言中，上述“引用”应被替换为“指针”。
+- 尾节点指向的是“空”，它在C++被记为 `nullptr` 。
+- 在 C、C++等支持指针的语言中，上述“引用”应被替换为“指针”。
 
 如以下代码所示，链表节点 `ListNode` 除了包含值，还需额外保存一个引用（指针）。因此在相同数据量下，**链表比数组占用更多的内存空间**。
 
-=== "Python"
-
-    ```python title=""
-    class ListNode:
-        """链表节点类"""
-        def __init__(self, val: int):
-            self.val: int = val               # 节点值
-            self.next: ListNode | None = None # 指向下一节点的引用
-    ```
 
 === "C++"
 
@@ -35,109 +26,6 @@
         ListNode *next;  // 指向下一节点的指针
         ListNode(int x) : val(x), next(nullptr) {}  // 构造函数
     };
-    ```
-
-=== "Java"
-
-    ```java title=""
-    /* 链表节点类 */
-    class ListNode {
-        int val;        // 节点值
-        ListNode next;  // 指向下一节点的引用
-        ListNode(int x) { val = x; }  // 构造函数
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title=""
-    /* 链表节点类 */
-    class ListNode(int x) {  //构造函数
-        int val = x;         // 节点值
-        ListNode? next;      // 指向下一节点的引用
-    }
-    ```
-
-=== "Go"
-
-    ```go title=""
-    /* 链表节点结构体 */
-    type ListNode struct {
-        Val  int       // 节点值
-        Next *ListNode // 指向下一节点的指针
-    }
-
-    // NewListNode 构造函数，创建一个新的链表
-    func NewListNode(val int) *ListNode {
-        return &ListNode{
-            Val:  val,
-            Next: nil,
-        }
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title=""
-    /* 链表节点类 */
-    class ListNode {
-        var val: Int // 节点值
-        var next: ListNode? // 指向下一节点的引用
-
-        init(x: Int) { // 构造函数
-            val = x
-        }
-    }
-    ```
-
-=== "JS"
-
-    ```javascript title=""
-    /* 链表节点类 */
-    class ListNode {
-        constructor(val, next) {
-            this.val = (val === undefined ? 0 : val);       // 节点值
-            this.next = (next === undefined ? null : next); // 指向下一节点的引用
-        }
-    }
-    ```
-
-=== "TS"
-
-    ```typescript title=""
-    /* 链表节点类 */
-    class ListNode {
-        val: number;
-        next: ListNode | null;
-        constructor(val?: number, next?: ListNode | null) {
-            this.val = val === undefined ? 0 : val;        // 节点值
-            this.next = next === undefined ? null : next;  // 指向下一节点的引用
-        }
-    }
-    ```
-
-=== "Dart"
-
-    ```dart title=""
-    /* 链表节点类 */
-    class ListNode {
-      int val; // 节点值
-      ListNode? next; // 指向下一节点的引用
-      ListNode(this.val, [this.next]); // 构造函数
-    }
-    ```
-
-=== "Rust"
-
-    ```rust title=""
-    use std::rc::Rc;
-    use std::cell::RefCell;
-    /* 链表节点类 */
-    #[derive(Debug)]
-    struct ListNode {
-        val: i32, // 节点值
-        next: Option<Rc<RefCell<ListNode>>>, // 指向下一节点的指针
-    }
     ```
 
 === "C"
@@ -159,74 +47,11 @@
     }
     ```
 
-=== "Kotlin"
-
-    ```kotlin title=""
-    /* 链表节点类 */
-    // 构造方法
-    class ListNode(x: Int) {
-        val _val: Int = x          // 节点值
-        val next: ListNode? = null // 指向下一个节点的引用
-    }
-    ```
-
-=== "Ruby"
-
-    ```ruby title=""
-    # 链表节点类
-    class ListNode
-      attr_accessor :val  # 节点值
-      attr_accessor :next # 指向下一节点的引用
-
-      def initialize(val=0, next_node=nil)
-        @val = val
-        @next = next_node
-      end
-    end
-    ```
-
-=== "Zig"
-
-    ```zig title=""
-    // 链表节点类
-    pub fn ListNode(comptime T: type) type {
-        return struct {
-            const Self = @This();
-
-            val: T = 0, // 节点值
-            next: ?*Self = null, // 指向下一节点的指针
-
-            // 构造函数
-            pub fn init(self: *Self, x: i32) void {
-                self.val = x;
-                self.next = null;
-            }
-        };
-    }
-    ```
-
 ## 链表常用操作
 
 ### 初始化链表
 
 建立链表分为两步，第一步是初始化各个节点对象，第二步是构建节点之间的引用关系。初始化完成后，我们就可以从链表的头节点出发，通过引用指向 `next` 依次访问所有节点。
-
-=== "Python"
-
-    ```python title="linked_list.py"
-    # 初始化链表 1 -> 3 -> 2 -> 5 -> 4
-    # 初始化各个节点
-    n0 = ListNode(1)
-    n1 = ListNode(3)
-    n2 = ListNode(2)
-    n3 = ListNode(5)
-    n4 = ListNode(4)
-    # 构建节点之间的引用
-    n0.next = n1
-    n1.next = n2
-    n2.next = n3
-    n3.next = n4
-    ```
 
 === "C++"
 
@@ -245,143 +70,6 @@
     n3->next = n4;
     ```
 
-=== "Java"
-
-    ```java title="linked_list.java"
-    /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
-    // 初始化各个节点
-    ListNode n0 = new ListNode(1);
-    ListNode n1 = new ListNode(3);
-    ListNode n2 = new ListNode(2);
-    ListNode n3 = new ListNode(5);
-    ListNode n4 = new ListNode(4);
-    // 构建节点之间的引用
-    n0.next = n1;
-    n1.next = n2;
-    n2.next = n3;
-    n3.next = n4;
-    ```
-
-=== "C#"
-
-    ```csharp title="linked_list.cs"
-    /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
-    // 初始化各个节点
-    ListNode n0 = new(1);
-    ListNode n1 = new(3);
-    ListNode n2 = new(2);
-    ListNode n3 = new(5);
-    ListNode n4 = new(4);
-    // 构建节点之间的引用
-    n0.next = n1;
-    n1.next = n2;
-    n2.next = n3;
-    n3.next = n4;
-    ```
-
-=== "Go"
-
-    ```go title="linked_list.go"
-    /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
-    // 初始化各个节点
-    n0 := NewListNode(1)
-    n1 := NewListNode(3)
-    n2 := NewListNode(2)
-    n3 := NewListNode(5)
-    n4 := NewListNode(4)
-    // 构建节点之间的引用
-    n0.Next = n1
-    n1.Next = n2
-    n2.Next = n3
-    n3.Next = n4
-    ```
-
-=== "Swift"
-
-    ```swift title="linked_list.swift"
-    /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
-    // 初始化各个节点
-    let n0 = ListNode(x: 1)
-    let n1 = ListNode(x: 3)
-    let n2 = ListNode(x: 2)
-    let n3 = ListNode(x: 5)
-    let n4 = ListNode(x: 4)
-    // 构建节点之间的引用
-    n0.next = n1
-    n1.next = n2
-    n2.next = n3
-    n3.next = n4
-    ```
-
-=== "JS"
-
-    ```javascript title="linked_list.js"
-    /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
-    // 初始化各个节点
-    const n0 = new ListNode(1);
-    const n1 = new ListNode(3);
-    const n2 = new ListNode(2);
-    const n3 = new ListNode(5);
-    const n4 = new ListNode(4);
-    // 构建节点之间的引用
-    n0.next = n1;
-    n1.next = n2;
-    n2.next = n3;
-    n3.next = n4;
-    ```
-
-=== "TS"
-
-    ```typescript title="linked_list.ts"
-    /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
-    // 初始化各个节点
-    const n0 = new ListNode(1);
-    const n1 = new ListNode(3);
-    const n2 = new ListNode(2);
-    const n3 = new ListNode(5);
-    const n4 = new ListNode(4);
-    // 构建节点之间的引用
-    n0.next = n1;
-    n1.next = n2;
-    n2.next = n3;
-    n3.next = n4;
-    ```
-
-=== "Dart"
-
-    ```dart title="linked_list.dart"
-    /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */\
-    // 初始化各个节点
-    ListNode n0 = ListNode(1);
-    ListNode n1 = ListNode(3);
-    ListNode n2 = ListNode(2);
-    ListNode n3 = ListNode(5);
-    ListNode n4 = ListNode(4);
-    // 构建节点之间的引用
-    n0.next = n1;
-    n1.next = n2;
-    n2.next = n3;
-    n3.next = n4;
-    ```
-
-=== "Rust"
-
-    ```rust title="linked_list.rs"
-    /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
-    // 初始化各个节点
-    let n0 = Rc::new(RefCell::new(ListNode { val: 1, next: None }));
-    let n1 = Rc::new(RefCell::new(ListNode { val: 3, next: None }));
-    let n2 = Rc::new(RefCell::new(ListNode { val: 2, next: None }));
-    let n3 = Rc::new(RefCell::new(ListNode { val: 5, next: None }));
-    let n4 = Rc::new(RefCell::new(ListNode { val: 4, next: None }));
-
-    // 构建节点之间的引用
-    n0.borrow_mut().next = Some(n1.clone());
-    n1.borrow_mut().next = Some(n2.clone());
-    n2.borrow_mut().next = Some(n3.clone());
-    n3.borrow_mut().next = Some(n4.clone());
-    ```
-
 === "C"
 
     ```c title="linked_list.c"
@@ -397,57 +85,6 @@
     n1->next = n2;
     n2->next = n3;
     n3->next = n4;
-    ```
-
-=== "Kotlin"
-
-    ```kotlin title="linked_list.kt"
-    /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
-    // 初始化各个节点
-    val n0 = ListNode(1)
-    val n1 = ListNode(3)
-    val n2 = ListNode(2)
-    val n3 = ListNode(5)
-    val n4 = ListNode(4)
-    // 构建节点之间的引用
-    n0.next = n1;
-    n1.next = n2;
-    n2.next = n3;
-    n3.next = n4;
-    ```
-
-=== "Ruby"
-
-    ```ruby title="linked_list.rb"
-    # 初始化链表 1 -> 3 -> 2 -> 5 -> 4
-    # 初始化各个节点
-    n0 = ListNode.new(1)
-    n1 = ListNode.new(3)
-    n2 = ListNode.new(2)
-    n3 = ListNode.new(5)
-    n4 = ListNode.new(4)
-    # 构建节点之间的引用
-    n0.next = n1
-    n1.next = n2
-    n2.next = n3
-    n3.next = n4
-    ```
-
-=== "Zig"
-
-    ```zig title="linked_list.zig"
-    // 初始化链表
-    // 初始化各个节点
-    var n0 = inc.ListNode(i32){.val = 1};
-    var n1 = inc.ListNode(i32){.val = 3};
-    var n2 = inc.ListNode(i32){.val = 2};
-    var n3 = inc.ListNode(i32){.val = 5};
-    var n4 = inc.ListNode(i32){.val = 4};
-    // 构建节点之间的引用
-    n0.next = &n1;
-    n1.next = &n2;
-    n2.next = &n3;
-    n3.next = &n4;
     ```
 
 ??? pythontutor "可视化运行"
